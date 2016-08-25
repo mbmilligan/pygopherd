@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.3
+#!/usr/bin/env python2
 
 # $Id: setup.py,v 1.6 2002/04/11 21:12:12 jgoerzen Exp $
 
@@ -22,7 +22,7 @@
 # END OF COPYRIGHT #
 
 
-from distutils.core import setup
+from setuptools import setup
 import pygopherd.version
 
 setup(name = "pygopherd",
@@ -33,7 +33,7 @@ setup(name = "pygopherd",
       url = pygopherd.version.homepage,
       packages = ['pygopherd', 'pygopherd.handlers', 'pygopherd.protocols'],
       scripts = ['bin/pygopherd'],
-      data_files = [ ('/etc/pygopherd', ['conf/pygopherd.conf',
+      data_files = [ ('etc/pygopherd', ['conf/pygopherd.conf',
                                          'conf/mime.types'] ) ],
       license = pygopherd.version.license
 )

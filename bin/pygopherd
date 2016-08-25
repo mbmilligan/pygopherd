@@ -23,11 +23,18 @@
 from pygopherd import *
 import sys
 import os
+import time
+import traceback
 
 conffile = os.environ.get('PYGOPHERD_CONF', '/etc/pygopherd/pygopherd.conf')
 if len(sys.argv) > 1:
     conffile = sys.argv[1]
 
-s = initialization.initeverything(conffile)
-s.serve_forever()
+try:
+    s = initialization.initeverything(conffile)
+    s.serve_forever()
+except:
+    traceback.print_exc()
+    print("Sleeping 5 minutes to allow debugging")
+    time.sleep(300)
 
